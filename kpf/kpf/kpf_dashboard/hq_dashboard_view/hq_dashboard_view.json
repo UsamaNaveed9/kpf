@@ -1,0 +1,28 @@
+{
+ "cards": [
+  {
+   "card": "Total Monthly Sales"
+  },
+  {
+   "card": "Total Daily Sales"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Item-wise Sales",
+   "width": "Half"
+  }
+ ],
+ "creation": "2023-03-09 16:36:02.962250",
+ "dashboard_name": "HQ Dashboard View",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2023-03-09 16:36:46.451201",
+ "modified_by": "Administrator",
+ "module": "KPF",
+ "name": "HQ Dashboard View",
+ "owner": "Administrator"
+}

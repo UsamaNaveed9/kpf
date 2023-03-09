@@ -1,0 +1,32 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2023-03-09 16:50:08.464036",
+ "developer_mode_only": 1,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "icon": "sell",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "HQ View",
+ "links": [],
+ "modified": "2023-03-09 16:53:17.509570",
+ "modified_by": "Administrator",
+ "module": "HQ View",
+ "name": "HQ View",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "label": "HQ Dashboard View",
+   "link_to": "HQ Dashboard View",
+   "type": "Dashboard"
+  }
+ ]
+}
