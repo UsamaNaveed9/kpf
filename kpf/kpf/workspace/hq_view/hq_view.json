@@ -13,8 +13,35 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "HQ View",
- "links": [],
- "modified": "2023-03-09 16:56:58.341647",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Report",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Item With Prices",
+   "link_to": "Item Prices",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Stock Aging",
+   "link_to": "Stock Ageing V2",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-03-09 21:33:17.875676",
  "modified_by": "Administrator",
  "module": "KPF",
  "name": "HQ View",
@@ -27,6 +54,30 @@
    "label": "HQ Dashboard View",
    "link_to": "HQ Dashboard View",
    "type": "Dashboard"
+  },
+  {
+   "doc_view": "List",
+   "label": "Block Users List",
+   "link_to": "Block Users",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Sales Order",
+   "link_to": "Sales Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Stock Entry",
+   "link_to": "Stock Entry",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Stock Reconciliation",
+   "link_to": "Stock Reconciliation",
+   "type": "DocType"
   }
  ]
 }
