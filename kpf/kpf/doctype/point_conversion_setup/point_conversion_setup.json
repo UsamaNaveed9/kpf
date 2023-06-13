@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-06-12 19:25:45.847596",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "posting_date",
+  "column_break_3",
+  "active",
+  "amount_to_points_section",
+  "shopping_amount_for_points",
+  "column_break_7",
+  "points_on_shopping_amount",
+  "points_to_amount_section",
+  "points_for_amount",
+  "column_break_11",
+  "amount_on_points",
+  "points_expiry_section",
+  "days"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PCS-.YY.-"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "amount_to_points_section",
+   "fieldtype": "Section Break",
+   "label": "Amount To Points"
+  },
+  {
+   "fieldname": "shopping_amount_for_points",
+   "fieldtype": "Currency",
+   "label": "Shopping Amount for Points"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "points_on_shopping_amount",
+   "fieldtype": "Float",
+   "label": "Points on Shopping Amount"
+  },
+  {
+   "fieldname": "points_to_amount_section",
+   "fieldtype": "Section Break",
+   "label": "Points To Amount"
+  },
+  {
+   "fieldname": "points_for_amount",
+   "fieldtype": "Float",
+   "label": "Points for Amount"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount_on_points",
+   "fieldtype": "Currency",
+   "label": "Amount on Points"
+  },
+  {
+   "fieldname": "points_expiry_section",
+   "fieldtype": "Section Break",
+   "label": "Points Expiry"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-06-13 13:55:56.380838",
+ "modified_by": "Administrator",
+ "module": "KPF",
+ "name": "Point Conversion Setup",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

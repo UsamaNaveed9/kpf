@@ -89,17 +89,17 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
-	"Sales Invoice": {
-		"before_save": "kpf.custompy.sales_invoice.check_credit_limit",
-		"before_submit": "kpf.custompy.sales_invoice.update_credit_limit"
-	}
+# doc_events = {
+# 	"Sales Invoice": {
+# 		"before_save": "kpf.custompy.sales_invoice.check_credit_limit",
+# 		"before_submit": "kpf.custompy.sales_invoice.update_credit_limit"
+# 	}
 # 	"*": {
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
 #	}
-}
+# }
 
 # Scheduled Tasks
 # ---------------
