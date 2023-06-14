@@ -11,99 +11,23 @@ def get_point_conversion_setup():
 	return setup
 
 @frappe.whitelist()
-def get_membership_details(identification_number):
-	member_details = frappe.db.sql('''select name as id,member_name,identification_number,gender,marital_status,member_group,
-							member_category,race,occupation,email,phone_number,register_location,member_home_address,
-							member_mailing_address,credit_limit,points,points_expiry_date
-							from `tabMembership` where identification_number = %s; ''',(identification_number),as_dict=1 )
-				  
-	return member_details    
+def get_membership_details(customer_name):
+	if frappe.db.exists("Customer", {"name": customer_name}):
+		cust = frappe.get_doc("Customer",customer_name)
+		if cust.is_member_customer == 1:
+			member_details = frappe.db.sql('''select name,customer_type,customer_group,identification_number,gender,marital_status,
+									member_category,race,occupation,register_location,member_home_address,email,phone_number
+									member_mailing_address,credit_limit,remaining_balance,points,points_expiry_date
+									from `tabCustomer` where name = %s; ''',(customer_name),as_dict=1 )
+			for m in member_details:
+				m["error"] = False
 
-@frappe.whitelist()
-def update_credit_limit_points_of_member(identification_number,credit_limit=None,points=None):
-	if identification_number and credit_limit and points:
-		if frappe.db.exists("Membership", {"identification_number": identification_number}):
-			filters = {
-				"identification_number": identification_number
-			}
-			name = frappe.db.get_value("Membership", filters, "name")
-			SETfilters = {
-				"active": 1
-			}
-			days = frappe.db.get_value("Point Conversion Setup", SETfilters, "days")
-			doc = frappe.get_doc("Membership", name)
-			doc.credit_limit = credit_limit
-			doc.points = points
-			doc.points_expiry_date = datetime.now().date() + timedelta(days=days)
-			doc.save()
-
-			response = [] 
-			msg = {
-				"error": False,
-				"message": "Credit Limit and Points of Member updated successfully"
-			}
-			response.append(msg)
-			return response
+			return member_details							
 		else:
 			response = [] 
 			msg = {
 				"error": True,
-				"message": "Membership record does not exist on this Identification Number"
-			}
-			response.append(msg)
-			return response
-	elif identification_number and credit_limit:
-		if frappe.db.exists("Membership", {"identification_number": identification_number}):
-			filters = {
-				"identification_number": identification_number
-			}
-			name = frappe.db.get_value("Membership", filters, "name")
-			doc = frappe.get_doc("Membership", name)
-			doc.credit_limit = credit_limit
-			doc.save()
-
-			response = [] 
-			msg = {
-				"error": False,
-				"message": "Credit Limit of Member updated successfully"
-			}
-			response.append(msg)
-			return response
-		else:
-			response = [] 
-			msg = {
-				"error": True,
-				"message": "Membership record does not exist on this Identification Number"
-			}
-			response.append(msg)
-			return response
-	elif identification_number and points:
-		if frappe.db.exists("Membership", {"identification_number": identification_number}):
-			filters = {
-				"identification_number": identification_number
-			}
-			name = frappe.db.get_value("Membership", filters, "name")
-			SETfilters = {
-				"active": 1
-			}
-			days = frappe.db.get_value("Point Conversion Setup", SETfilters, "days")
-			doc = frappe.get_doc("Membership", name)
-			doc.points = points
-			doc.points_expiry_date = datetime.now().date() + timedelta(days=days)
-			doc.save()
-
-			response = [] 
-			msg = {
-				"error": False,
-				"message": "Points of Member updated successfully"
-			}
-			response.append(msg)
-			return response
-		else:
-			response = [] 
-			msg = {
-				"error": True,
-				"message": "Membership record does not exist on this Identification Number"
+				"message": "Customer is not Member Customer"
 			}
 			response.append(msg)
 			return response
@@ -111,9 +35,87 @@ def update_credit_limit_points_of_member(identification_number,credit_limit=None
 		response = [] 
 		msg = {
 			"error": True,
-			"message": "Credit Limit and Points are None"
+			"message": "Customer not exist of this Name"
 		}
 		response.append(msg)
 		return response
+
+
+@frappe.whitelist()
+def update_credit_limit_points_of_member(customer_name,remaining_balance=None,points=None):
+	if frappe.db.exists("Customer", {"name": customer_name}):
+		cust = frappe.get_doc("Customer",customer_name)
+		if cust.is_member_customer == 1:
+			if customer_name and remaining_balance and points:
+				SETfilters = {
+					"active": 1
+				}
+				days = frappe.db.get_value("Point Conversion Setup", SETfilters, "days")
+				doc = frappe.get_doc("Customer", customer_name)
+				doc.remaining_balance = remaining_balance
+				doc.points = points
+				doc.points_expiry_date = datetime.now().date() + timedelta(days=days)
+				doc.save()
+
+				response = [] 
+				msg = {
+					"error": False,
+					"message": "Remaining Balance and Points of Member updated successfully"
+				}
+				response.append(msg)
+				return response
+			elif customer_name and remaining_balance:
+				doc = frappe.get_doc("Customer", customer_name)
+				doc.remaining_balance = remaining_balance
+				doc.save()
+
+				response = [] 
+				msg = {
+					"error": False,
+					"message": "Remaining Balance of Member updated successfully"
+				}
+				response.append(msg)
+				return response
+			elif customer_name and points:
+				SETfilters = {
+					"active": 1
+				}
+				days = frappe.db.get_value("Point Conversion Setup", SETfilters, "days")
+				doc = frappe.get_doc("Customer", customer_name)
+				doc.points = points
+				doc.points_expiry_date = datetime.now().date() + timedelta(days=days)
+				doc.save()
+
+				response = [] 
+				msg = {
+					"error": False,
+					"message": "Points of Member updated successfully"
+				}
+				response.append(msg)
+				return response
+			else:
+				response = [] 
+				msg = {
+					"error": True,
+					"message": "Credit Limit and Points are None"
+				}
+				response.append(msg)
+				return response
+		else:
+			response = [] 
+			msg = {
+				"error": True,
+				"message": "Customer is not Member Customer"
+			}
+			response.append(msg)
+			return response
+	else:
+		response = [] 
+		msg = {
+			"error": True,
+			"message": "Customer not exist of this Name"
+		}
+		response.append(msg)
+		return response			
 
 

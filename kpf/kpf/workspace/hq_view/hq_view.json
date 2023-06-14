@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HQ Dashboard View\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block Users List\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Reconciliation\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point Conversion Setup\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Report\",\"col\":4}}]",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HQ Dashboard View\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block Users List\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Reconciliation\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point Conversion Setup\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Report\",\"col\":4}}]",
  "creation": "2023-03-09 16:55:56.031273",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -78,11 +78,12 @@
    "type": "Link"
   }
  ],
- "modified": "2023-06-13 14:23:23.019063",
+ "modified": "2023-06-15 00:38:36.078153",
  "modified_by": "Administrator",
  "module": "KPF",
  "name": "HQ View",
  "owner": "Administrator",
+ "parent_page": "",
  "public": 1,
  "quick_lists": [],
  "roles": [],
@@ -116,12 +117,6 @@
    "doc_view": "List",
    "label": "Stock Reconciliation",
    "link_to": "Stock Reconciliation",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
-   "label": "Membership",
-   "link_to": "Membership",
    "type": "DocType"
   },
   {
