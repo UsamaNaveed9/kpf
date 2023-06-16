@@ -119,3 +119,35 @@ def update_credit_limit_points_of_member(customer_name,remaining_balance=None,po
 		return response			
 
 
+@frappe.whitelist()
+def get_stock_details(warehouse):
+	data = frappe.db.sql(f'''select b.item_code,b.warehouse,b.actual_qty,b.stock_uom,b.valuation_rate,b.stock_value,p.price_list_rate
+			    from `tabBin` as b LEFT JOIN `tabItem Price` as p ON b.item_code = p.item_code and p.selling = 1
+				where b.warehouse='{warehouse}'; ''',as_dict=1 )
+	return data
+
+
+@frappe.whitelist()
+def get_items_master():
+	items = frappe.db.sql('''select i.item_code,i.item_name,i.is_discounted_item,i.item_group,i.stock_uom,i.purchase_uom,i.sales_uom,i.end_of_life,
+				p.price_list_rate,b.barcode,b.barcode_type
+			     	from `tabItem` as i LEFT JOIN `tabItem Price` as p ON i.item_code = p.item_code and p.selling = 1
+				LEFT JOIN `tabItem Barcode` as b ON i.item_code = b.parent; ''',as_dict=1 )
+                  
+	return items
+
+@frappe.whitelist()
+def get_selling_price():
+	items = frappe.db.sql('''select item_code,price_list_rate
+			     from `tabItem Price` where selling =1 ; ''',as_dict=1 )
+                  
+	return items
+	
+@frappe.whitelist()
+def get_customer_details():
+	customers = frappe.db.sql('''select name as id,customer_name,customer_type,customer_group,territory,is_member_customer,
+					identification_number,marital_status,member_category,race,occupation,register_location,email,phone_number,
+					member_home_address,member_mailing_address,credit_limit,remaining_balance,points,points_expiry_date
+			     	from `tabCustomer` where disabled = 0;''',as_dict=1 )
+                  
+	return customers
