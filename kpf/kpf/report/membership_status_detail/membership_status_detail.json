@@ -1,0 +1,30 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-06-15 13:17:02.149749",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2023-06-21 16:43:53.492762",
+ "modified_by": "Administrator",
+ "module": "KPF",
+ "name": "Membership Status Detail",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\r\n  customer_name AS 'Member Name',\r\n  identification_number AS 'ID Card N0',\r\n  gender AS 'Gender',\r\n  customer_group AS 'Group', \r\n  member_category AS 'Category',\r\n  occupation AS 'Occupation',\r\n  email AS 'Email',\r\n  phone_number AS 'Phone No',\r\n  credit_limit AS 'Credit Limit',\r\n  remaining_balance AS 'Remaining Balance',\r\n  points AS 'Points',\r\n  points_expiry_date AS 'Points Expiry',\r\n  CASE\r\n    WHEN disabled = 0 THEN 'Active'\r\n    WHEN disabled = 1 THEN 'Disable'\r\n  END AS 'Status'\r\nFROM\r\n  tabCustomer;\r\n",
+ "ref_doctype": "Customer",
+ "report_name": "Membership Status Detail",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "All"
+  }
+ ]
+}

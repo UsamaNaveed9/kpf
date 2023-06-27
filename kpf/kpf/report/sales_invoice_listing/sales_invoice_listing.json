@@ -1,0 +1,33 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2023-06-15 14:47:36.598358",
+ "disable_prepared_report": 0,
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2023-06-22 15:31:37.798108",
+ "modified_by": "Administrator",
+ "module": "KPF",
+ "name": "Sales Invoice Listing",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\r\n  si.set_warehouse AS 'Location::160\"',\r\n  si.posting_date AS 'Date::100\"',\r\n  si.reference_number AS 'Invoice Reference::170\"',\r\n  si.customer AS 'Customer Name',\r\n  c.identification_number AS 'Member ID::130',\r\n  c.member_category AS 'Category::90',\r\n  sii.item_code AS 'Item Code::100',\r\n  sii.item_name AS 'Item Name::300',\r\n  sii.item_group AS 'Item Group',\r\n  sii.uom AS 'UOM',\r\n  sii.qty AS 'QTY',\r\n  sii.rate AS 'Unit Price',\r\n  sii.discount_amount AS 'Discount Amount',\r\n  sii.amount AS 'Net Amount'\r\nFROM\r\n  `tabSales Invoice` si\r\nLEFT OUTER JOIN\r\n  `tabSales Invoice Item` sii ON si.name = sii.parent\r\nLEFT OUTER JOIN\r\n  `tabCustomer` c ON si.customer = c.customer_name;\r\n",
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Sales Invoice Listing",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Employee Self Service"
+  }
+ ]
+}
