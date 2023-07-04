@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HQ Dashboard View\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block Users List\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Reconciliation\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point Conversion Setup\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Report\",\"col\":4}}]",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HQ Dashboard View\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block Users List\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer List\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Reconciliation\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point Conversion Setup\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Report\",\"col\":4}}]",
  "creation": "2023-03-09 16:55:56.031273",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,7 +13,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Report",
-   "link_count": 6,
+   "link_count": 11,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -39,7 +39,7 @@
   },
   {
    "hidden": 0,
-   "is_query_report": 0,
+   "is_query_report": 1,
    "label": "Stock Ledger",
    "link_count": 0,
    "link_to": "Stock Ledger",
@@ -49,7 +49,7 @@
   },
   {
    "hidden": 0,
-   "is_query_report": 0,
+   "is_query_report": 1,
    "label": "Stock Summary",
    "link_count": 0,
    "link_to": "Total Stock Summary",
@@ -69,16 +69,66 @@
   },
   {
    "hidden": 0,
-   "is_query_report": 0,
-   "label": "Cash Management",
+   "is_query_report": 1,
+   "label": "Product Wise Sales",
    "link_count": 0,
-   "link_to": "Cash Flow",
+   "link_to": "Product Wise Sales",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Customer Wise Sales",
+   "link_count": 0,
+   "link_to": "Customer Wise Sales",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Membership Status Detail",
+   "link_count": 0,
+   "link_to": "Membership Status Detail",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Mode of Payment Wise Report",
+   "link_count": 0,
+   "link_to": "Mode of Payment Wise Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Sales Invoice Report",
+   "link_count": 0,
+   "link_to": "Sales Invoice Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Location Wise Cash Movement",
+   "link_count": 0,
+   "link_to": "Location Wise Cash Movement",
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2023-06-15 00:38:36.078153",
+ "modified": "2023-06-27 16:02:02.873491",
  "modified_by": "Administrator",
  "module": "KPF",
  "name": "HQ View",
@@ -89,6 +139,13 @@
  "roles": [],
  "sequence_id": 2.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Customer List",
+   "link_to": "Customer",
+   "type": "DocType"
+  },
   {
    "doc_view": "",
    "label": "HQ Dashboard View",

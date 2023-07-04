@@ -54,13 +54,13 @@ def get_data(filters=None):
 		condition = ""
 		condition += "and company = '{0}'".format(filters.company)
 		entries = frappe.db.sql("""select sum(debit) as cash_in, sum(credit) as cash_out from `tabGL Entry`
-								where account = "Cash - KPF" and posting_date >= '{0}' and posting_date <= '{1}' 
+								where account = "Cash - KPF" and is_cancelled = 0 and posting_date >= '{0}' and posting_date <= '{1}' 
 								and cost_center = '{2}' {3}""".format(filters.from_date,filters.to_date,row['cost_center'],condition),as_dict=1)								
 		if entries:
 			for entry in entries:
 				entry['cost_center'] = row['cost_center']
 				total_pc = frappe.db.sql("""select sum(debit + credit) as total_pc from `tabGL Entry`
-								where voucher_type = "Journal Entry" and against = "Cash - KPF" and posting_date >= '{0}' and posting_date <= '{1}' 
+								where voucher_type = "Journal Entry" and against = "Cash - KPF" and is_cancelled = 0 and posting_date >= '{0}' and posting_date <= '{1}' 
 								and cost_center = '{2}' {3}""".format(filters.from_date,filters.to_date,row['cost_center'],condition),as_dict=1)
 				for tp in total_pc:
 					entry['total_in_pc'] = tp['total_pc']
