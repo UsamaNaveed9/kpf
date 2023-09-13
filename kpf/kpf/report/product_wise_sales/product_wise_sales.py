@@ -61,6 +61,7 @@ def _execute(filters=None, additional_table_columns=None, additional_query_colum
 			"item_code": d.item_code,
 			"item_name": item_record.item_name if item_record else d.item_name,
 			"item_group": item_record.item_group if item_record else d.item_group,
+			"warehouse": d.warehouse,
 			"description": d.description,
 			"invoice": d.parent,
 			"posting_date": d.posting_date,
@@ -298,6 +299,7 @@ def get_columns(additional_table_columns, filters):
 		# 	"options": "Cost Center",
 		# 	"width": 100,
 		# },
+		{"label": _("Warehouse"), "fieldname": "warehouse", "fieldtype": "Link", "options": "Warehouse", "width": 150},
 		{"label": _("Qty"), "fieldname": "stock_qty", "fieldtype": "Float", "width": 100},
 		{
 			"label": _("UOM"),
@@ -415,7 +417,7 @@ def get_items(filters, additional_query_columns):
 			`tabSales Invoice Item`.income_account, `tabSales Invoice Item`.cost_center,
 			`tabSales Invoice Item`.stock_qty, `tabSales Invoice Item`.stock_uom,
 			`tabSales Invoice Item`.base_net_rate, `tabSales Invoice Item`.base_net_amount,
-			`tabSales Invoice Item`.discount_amount,
+			`tabSales Invoice Item`.discount_amount, `tabSales Invoice Item`.warehouse,
 			`tabSales Invoice`.customer_name, `tabSales Invoice`.customer_group, `tabSales Invoice Item`.so_detail,
 			`tabSales Invoice`.update_stock, `tabSales Invoice Item`.uom, `tabSales Invoice Item`.qty {0}
 		from `tabSales Invoice`, `tabSales Invoice Item`

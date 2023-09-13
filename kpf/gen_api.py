@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 import frappe
 from frappe.utils import today, get_first_day, get_last_day, getdate
 from datetime import date, timedelta, datetime
@@ -365,3 +366,25 @@ def promotion_list():
 				pr["product_discount_slabs"] = product_discount_slabs
 
 	return promotion_records
+
+@frappe.whitelist()
+def create_void_items(args):
+	try:
+		doc_name = []
+		for i in args:
+			i['doctype'] = 'Void Items'
+			doc = frappe.get_doc(i)
+			doc.save()
+			doc_name.append(doc.name)
+		return doc_name
+	except Exception as e:
+		add_log(str(e))
+		return "Failed"
+
+#add log
+def add_log(message):
+	file = open('/home/erpnext/frappe-bench/apps/kpf/kpf/kpf/doctype/void_items/voiditem.log','a')
+	file.write(message+'\n')
+	file.close()		
+
+	
